@@ -14,11 +14,6 @@ function App() {
             Home
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to = "/users/show" className = "nav-link">
-            User
-            </NavLink>
-          </li>
         </ul>
         {/*MAIN*/}
         <div className='main'>

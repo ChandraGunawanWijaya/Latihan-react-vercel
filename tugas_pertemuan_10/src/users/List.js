@@ -20,7 +20,12 @@ const List = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4">User List</h2>
+      <div className="d-flex justify-content-between mb-4">
+        <h2 className="text-center">User List</h2>
+        <NavLink to="/users/create" className="btn btn-success">
+          Create User
+        </NavLink>
+      </div>
       <div className="row">
         {users.map((user) => (
           <div className="col-md-4 mb-4" key={user.id}>

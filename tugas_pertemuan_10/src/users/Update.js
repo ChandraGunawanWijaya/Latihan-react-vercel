@@ -43,7 +43,7 @@ const Update = () => {
             const res = await axios.put(`https://reqres.in/api/users/${id}`, user);
             alert(res.data.first_name + " berhasil diupdate");
             console.log(res.data.first_name);
-            navigate("/users/show");
+            navigate("/");
         } catch (error) {
             alert("Network Error");
         }

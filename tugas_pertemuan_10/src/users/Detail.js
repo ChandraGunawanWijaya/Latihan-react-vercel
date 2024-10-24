@@ -54,7 +54,7 @@ const Detail = () => {
                     </div>
                     <button 
                         className="btn btn-primary mt-3" 
-                        onClick={() => navigate("/users/show")}
+                        onClick={() => navigate("/")}
                     >
                         Back to Users List
                     </button>

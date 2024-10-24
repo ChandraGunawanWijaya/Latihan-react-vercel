@@ -10,58 +10,73 @@ const Create = () => {
         email: ""
     });
 
-    // Handle form changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({
             ...user,
-            [name]: value // Dynamically update the correct field
+            [name]: value
         });
-    }
+    };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Fix typo (was preventdDefault)
-
+        e.preventDefault();
         try {
             const response = await axios.post("https://reqres.in/api/users", user);
             alert(`${response.data.first_name} berhasil ditambahkan`);
-            console.log(response.data.first_name);
-            navigate("/users/show");
+            navigate("/");
         } catch (error) {
             alert(error);
         }
-    }
+    };
 
     return (
-        <>
-            <h2>Halaman Form Create Users</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    value={user.first_name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    value={user.last_name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={user.email}
-                    onChange={handleChange}
-                />
-                <button type="submit">Submit</button>
-            </form>
-        </>
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <h2 className="text-center mb-4">Create New User</h2>
+                    <form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-light">
+                        <div className="form-group mb-3">
+                            <label htmlFor="first_name">First Name</label>
+                            <input
+                                type="text"
+                                name="first_name"
+                                id="first_name"
+                                placeholder="Enter First Name"
+                                value={user.first_name}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group mb-3">
+                            <label htmlFor="last_name">Last Name</label>
+                            <input
+                                type="text"
+                                name="last_name"
+                                id="last_name"
+                                placeholder="Enter Last Name"
+                                value={user.last_name}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group mb-3">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Enter Email"
+                                value={user.email}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     );
-}
+};
 
 export default Create;
